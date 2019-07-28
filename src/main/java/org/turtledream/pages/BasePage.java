@@ -3,6 +3,7 @@ package org.turtledream.pages;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -27,6 +28,8 @@ public abstract class BasePage {
     public void fillField(WebElement field, String value){
         wait.until(ExpectedConditions.visibilityOf(field));
         wait.until(ExpectedConditions.elementToBeClickable(field));
+        Actions mouseHover = new Actions(DriverManager.getDriver());
+        mouseHover.moveToElement(field).perform();
         field.clear();
         field.sendKeys(value);
     }
@@ -39,6 +42,8 @@ public abstract class BasePage {
     public void click(WebElement element){
         wait.until(ExpectedConditions.visibilityOf(element));
         wait.until(ExpectedConditions.elementToBeClickable(element));
+        Actions mouseHover = new Actions(DriverManager.getDriver());
+        mouseHover.moveToElement(element).perform();
         element.click();
     }
 

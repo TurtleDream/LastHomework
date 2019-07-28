@@ -22,6 +22,18 @@ public class SearchResultPage extends BasePage {
     @FindBy(xpath = "//button[@class='close']")
     public WebElement closer;
 
+    @FieldName(name = "Посмотреть все")
+    @FindBy(xpath = "//div[@data-test-id='filter-block-brand']//span[@class='show']")
+    public WebElement viewAll;
+
+    @FieldName(name = "Бренды")
+    @FindBy(xpath = "//div[@data-test-id='filter-block-brand']//form//input")
+    public WebElement brends;
+
+    @FieldName(name = "Искать")
+    @FindBy(xpath = "//button[contains(@class, \"search-\")]")
+    public WebElement srchBtn;
+
     @Override
     public WebElement getField(String name) throws Exception {
         return getField(name, "org.turtledream.pages.SearchResultPage");
